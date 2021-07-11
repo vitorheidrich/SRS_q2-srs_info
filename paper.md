@@ -33,7 +33,7 @@ bibliography: paper.bib
 
 # Summary
 
-Several ecological data types, especially microbiome count data, are commonly sample-wise normalized before analysis to correct for sampling bias and other technical artifacts. Recently, we developed an algorithm for normalization of ecological count data called ‘scaling with ranked subsampling (SRS)’, which surpasses widely adopted ‘rarefying’ (random subsampling without replacement) in reproducibility and in safeguarding the original community structure. Here we describe an implementation of the SRS algorithm in the 'SRS' R package and the 'q2-srs' QIIME 2 plugin. We also provide accessory functions for dataset exploration to guide the choice of parameters for SRS.
+Several ecological data types, especially microbiome count data, are commonly sample-wise normalized before analysis to correct for sampling bias and other technical artifacts. Recently, we developed an algorithm for normalization of ecological count data called ‘scaling with ranked subsampling’ (SRS), which surpasses widely adopted ‘rarefying’ (random subsampling without replacement) in reproducibility and in safeguarding the original community structure. Here we describe an implementation of the SRS algorithm in the 'SRS' R package and the 'q2-srs' QIIME 2 plugin. We also provide accessory functions for dataset exploration to guide the choice of parameters for SRS.
 
 # Statement of need
 
@@ -48,7 +48,7 @@ In this work, we introduce an R package (‘SRS’) and a QIIME 2 plugin (‘q2-
 SRS algorithm performs scaling followed by ranked subsampling.
 
 * Scaling: feature counts (such as OTUs (operational taxonomic units), ASVs (amplicon sequence variants) or clades) are scaled sample-wise so that the sum of the scaled counts ($C_{scaled}$) for all samples are equal to the desired number of counts ($C_{min}$).
-* Ranked subsampling: the scaling step produces fractional values that must be converted into counts (integers). To do this, the $C_{scaled}$ for each feature is split into the floor ($C_{int}$) and fractional part ($C_{frac}$) of $C_scaled$. Because $C_{min} = \sum{C_{scaled}} = \sum{C_{int}} + \sum{C_{frac}}$, follows that $C_{min} \geq \sum{C_{int}}$. Therefore, $\Delta{C}$ $C_{frac}$ values (where $\Delta{C} = C_{min} - \sum{C_{int}}$) must be converted into additional counts (integers) so that $C_{min}$ can be reached. To do so, $C_{frac}$ values are ranked. Next, from the highest to the lowest rank, a count for each feature is added until $\Delta{C}$ counts have been added. After this step, all samples will have been normalized to $C_{min}$ counts.
+* Ranked subsampling: the scaling step produces fractional values that must be converted into counts (integers). To do this, the $C_{scaled}$ for each feature is split into the floor ($C_{int}$) and fractional part ($C_{frac}$) of $C_{scaled}$. Because $C_{min} = \sum{C_{scaled}} = \sum{C_{int}} + \sum{C_{frac}}$, follows that $C_{min} \geq \sum{C_{int}}$. Therefore, $\Delta{C}$ $C_{frac}$ values (where $\Delta{C} = C_{min} - \sum{C_{int}}$) must be converted into additional counts (integers) so that $C_{min}$ can be reached. To do so, $C_{frac}$ values are ranked. Next, from the highest to the lowest rank, a count for each feature is added until $\Delta{C}$ counts have been added. After this step, all samples will have been normalized to $C_{min}$ counts.
 * Special cases: (i) when $C_{frac}$ values involved in picking $\Delta{C}$ counts share the same rank across features, the counts are added for features based on the respective $C_{int}$ ranks; (ii) when both $C_{frac}$ and its respective $C_{int}$ values involved in picking $\Delta{C}$ counts share the same ranks across features, the counts are assigned randomly (without replacement). The specification of the seed that initializes the random process enables reproducible results.
 
 # Features
@@ -85,7 +85,7 @@ The `SRS.shiny.app`-function of the ‘SRS’ R package launches a Shiny app for
 
 ![User interface of the Shiny app for SRS (`SRS.shiny.app`-function of the ‘SRS’ R package version 0.2.2).\label{fig:figure1}](Figures/Figure1.png){ width=90% }
 
-The default $C_{min}$ of the app is the lowest total number of counts per sample in the input data (no samples are discarded by default), which can be restored within the app using the `reset C<sub>min</sub>`-button. The default maximum sample size equals the default setting of $C_{min}$ and can be restored using the `reset max. sample size`-button. The default step size for SRS curves is 1,000. The default setting of the `SRS.shiny.app`-function (as of version 0.2.2) is:
+The default $C_{min}$ of the app is the lowest total number of counts per sample in the input data (no samples are discarded by default), which can be restored within the app using the `reset Cmin`-button. The default maximum sample size equals the default setting of $C_{min}$ and can be restored using the `reset max. sample size`-button. The default step size for SRS curves is 1,000. The default setting of the `SRS.shiny.app`-function (as of version 0.2.2) is:
 ```r
 SRS.shiny.app(data)
 ```
