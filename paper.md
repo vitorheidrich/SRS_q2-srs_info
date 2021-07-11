@@ -9,13 +9,13 @@ tags:
   - bioinformatics
   - normalization
 authors:
-  - name: Vitor Heidrich^["these authors contributed equally to this work, corresponding author"]
+  - name: Vitor Heidrich^[contributed equally, corresponding author]
     orcid: 0000-0001-6617-9187
     affiliation: "1, 2"
   - name: Petr Karlovsky
     affiliation: 3
     orcid: 0000-0002-6532-5856
-  - name: Lukas Beule^["these authors contributed equally to this work, corresponding author"]
+  - name: Lukas Beule^[contributed equally, corresponding author]
     affiliation: 4
     orcid: 0000-0003-1107-7540
 affiliations:
