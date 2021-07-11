@@ -83,7 +83,7 @@ The `SRS.shiny.app`-function of the ‘SRS’ R package launches a Shiny app for
 2. a plot of SRS curves (`SRScurve`-function) that respond to the selected step size (`step`) and maximum sample size (`max.sample.size`) (\autoref{fig:figure1}B), and
 3. an interactive table with sample names and the number of counts per sample as well as the initial diversity (non-normalized), retained diversity (normalized), %retained diversity (normalized) and %discarded diversity (normalized) of the selected alpha diversity metric in response to the selected $C_{min}$ (\autoref{fig:figure1}C).
 
-![User interface of the Shiny app for SRS (`SRS.shiny.app`-function of the ‘SRS’ R package version 0.2.2).\label{fig:figure1}](Figures/Figure1.png){ width=90% }
+![User interface of the Shiny app for SRS (`SRS.shiny.app`-function of the ‘SRS’ R package version 0.2.2).\label{fig:figure1}](Figures/Figure1.png){ width=95% }
 
 The default $C_{min}$ of the app is the lowest total number of counts per sample in the input data (no samples are discarded by default), which can be restored within the app using the `reset Cmin`-button. The default maximum sample size equals the default setting of $C_{min}$ and can be restored using the `reset max. sample size`-button. The default step size for SRS curves is 1,000. The default setting of the `SRS.shiny.app`-function (as of version 0.2.2) is:
 ```r
