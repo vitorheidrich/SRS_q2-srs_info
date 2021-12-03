@@ -2,7 +2,7 @@
 
 Scaling with Ranked Subsampling (SRS) is a normalization method for ecological count data (see [Beule & Karlovsky, 2020](https://doi.org/10.7717/peerj.9593)). 
 
-SRS is implemented as the 'SRS' R package and the 'q2-srs' QIIME 2 plugin. Refer to their particular repositories for more specific information:
+SRS is implemented as the 'SRS' R package and the 'q2-srs' QIIME 2 plugin (see [Heidrich et al., 2021](https://doi.org/10.7717/peerj.9593)). Refer to their particular repositories for more specific information:
 
 ['SRS' R package repo](https://github.com/vitorheidrich/SRS)
 
