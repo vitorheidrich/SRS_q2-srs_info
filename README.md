@@ -13,3 +13,4 @@ SRS is implemented as the 'SRS' R package and the 'q2-srs' QIIME 2 plugin (see [
 
 ![Downloads](https://anaconda.org/vitorheidrich/q2_srs/badges/downloads.svg)
 
+You can also run SRS natively in Python using [SRS.py](https://github.com/vitorheidrich/SRS_q2-srs_info/blob/main/SRS.py). Check the [usage example](https://github.com/vitorheidrich/SRS_q2-srs_info/blob/main/SRS_example.ipynb).
